@@ -145,6 +145,19 @@ If you want to run `run.sh` exclusively for ensemble forecast rescue without wri
 # */10 * * * * MACHINE=gaeac7 /path/to/workflow_status/run.sh /path/to/custom_exps.yml
 ```
 
+### 6. Multiple Experiment Groups on One Machine
+
+Several config files can be run independently on the same HPC (e.g. `run.sh groupA.yaml` and
+`run.sh groupB.yaml`). Each config is a *group*, named by a top-level or `common:` `group:` key
+(default: the config file name without extension). Every `<exp>.json` carries its `group`, and
+`_index.json` on `status-<MACHINE>` maps each file to its group. A push replaces only the files of its
+own group(s) and keeps the others (guarded by `--force-with-lease` with retry), so groups never
+overwrite each other. The dashboard sidebar shows a header per group when more than one is present.
+
+Files of a group that is no longer run stay on the branch (only a push from their own group removes
+them). To retire a group, set `experiments: []` in its config and run it once; that push removes all
+of the group's files. Then drop the config.
+
 ## Repository Structure
 
 ```

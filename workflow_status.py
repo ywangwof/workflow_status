@@ -14,6 +14,9 @@ Features:
   - Saves `<exp>.json` (with rolling 7-day `history`) in `.state/` and pushes directly
     to branch `status-<MACHINE>` (`https://raw.githubusercontent.com/<owner>/<repo>/status-<machine>/<exp>.json`)
     without modifying the working tree or `main` branch
+  - Multiple experiment groups can share one `status-<MACHINE>` branch: set `group:` (top level or
+    in `common:`, default = config file name) and run each config separately; a push replaces only
+    its own group's files and keeps the others
   - Pings healthchecks.io dead-man's-switch heartbeat if `healthchecks_uuid.txt` exists
 """
 
@@ -675,91 +678,136 @@ def get_status_branch(cluster: Optional[str] = None) -> str:
     return f"status-{machine}"
 
 
-def git_push_status_branch(repo_root: Path, updated_files: List[Path], branch: str, dry_run: bool) -> bool:
+def _git(repo_root: Path, args: List[str], timeout: int = 10, input_text: Optional[str] = None) -> subprocess.CompletedProcess:
+    return subprocess.run(
+        ["git", *args], cwd=str(repo_root), input=input_text,
+        capture_output=True, text=True, timeout=timeout,
+    )
+
+
+def _remote_branch_state(repo_root: Path, branch: str) -> Tuple[Optional[str], Dict[str, str], Dict[str, str]]:
     """
-    Build a standalone commit containing <exp>.json at the root of `branch`
-    using git plumbing (hash-object -> mktree -> commit-tree) and push it to
-    `origin <commit_sha>:refs/heads/<branch>`.
+    Fetch `branch` from origin and return (tip_sha or None, {fname: blob_sha}, {fname: group}).
+    The group map comes from the branch's `_index.json` ("groups"); files without an entry
+    are treated as unowned (legacy) and will be replaced by the current run.
+    """
+    remote_ref = f"refs/remotes/origin/{branch}"
+    fetch = _git(repo_root, ["fetch", "--quiet", "origin", f"+refs/heads/{branch}:{remote_ref}"], timeout=60)
+    if fetch.returncode != 0:
+        if "couldn't find remote ref" in fetch.stderr.lower():
+            return None, {}, {}
+        raise RuntimeError(f"git fetch {branch} failed: {fetch.stderr.strip()}")
+    tip = _git(repo_root, ["rev-parse", remote_ref]).stdout.strip()
+    blobs: Dict[str, str] = {}
+    for line in _git(repo_root, ["ls-tree", tip]).stdout.splitlines():
+        meta, _, fname = line.partition("\t")
+        parts = meta.split()
+        if len(parts) == 3 and parts[1] == "blob":
+            blobs[fname] = parts[2]
+    groups: Dict[str, str] = {}
+    if "_index.json" in blobs:
+        try:
+            idx = json.loads(_git(repo_root, ["cat-file", "-p", blobs["_index.json"]]).stdout)
+            groups = {k: str(v) for k, v in (idx.get("groups") or {}).items()}
+        except (ValueError, AttributeError):
+            pass
+    return tip, blobs, groups
+
+
+def git_push_status_branch(repo_root: Path, updated_files: List[Path], branch: str, dry_run: bool,
+                           run_groups: Optional[List[str]] = None, max_tries: int = 3) -> bool:
+    """
+    Build a standalone (parentless) commit at the root of `branch` with git plumbing
+    (hash-object -> mktree -> commit-tree) and push it to `origin <commit_sha>:refs/heads/<branch>`.
+
+    Several experiment groups (one per config file / `group:` key) can share one status branch:
+    the commit keeps <exp>.json files of *other* groups already on the branch and replaces
+    only the files of the groups processed in this run (`run_groups`). The push uses
+    --force-with-lease against the fetched tip and retries if another run pushed in between.
     Never modifies the working tree, index, or current branch (`main`).
     """
-    if not updated_files:
+    if not updated_files and not run_groups:
         return True
 
-    names = [f.name for f in updated_files]
-    if dry_run:
-        logging.info("[DRY-RUN] Would push to branch '%s': %s", branch, ", ".join(names))
-        return True
-
-    existing_blobs: Dict[str, str] = {}
+    names = [f.name for f in updated_files] or ["(none)"]
+    new_groups: Dict[str, str] = {}
     for f in updated_files:
-        ho = subprocess.run(
-            ["git", "hash-object", "-w", str(f)],
-            cwd=str(repo_root),
-            capture_output=True,
-            text=True,
-            timeout=10,
-        )
+        try:
+            new_groups[f.name] = str(json.loads(f.read_text()).get("group") or "")
+        except (OSError, ValueError):
+            new_groups[f.name] = ""
+    owned = set(run_groups or []) | set(new_groups.values())
+
+    if dry_run:
+        logging.info("[DRY-RUN] Would push to branch '%s' (groups: %s): %s",
+                     branch, ", ".join(sorted(owned)), ", ".join(names))
+        return True
+
+    new_blobs: Dict[str, str] = {}
+    for f in updated_files:
+        ho = _git(repo_root, ["hash-object", "-w", str(f)])
         if ho.returncode != 0:
             logging.error("git hash-object failed for %s: %s", f.name, ho.stderr.strip())
             return False
-        existing_blobs[f.name] = ho.stdout.strip()
+        new_blobs[f.name] = ho.stdout.strip()
 
-    # Also write _index.json listing all <exp>.json files on this branch so the dashboard
-    # can discover experiments via raw.githubusercontent.com without hitting api.github.com rate limits
-    index_payload = json.dumps({"files": sorted(existing_blobs.keys()), "updated_at": utc_now_iso()}, indent=2) + "\n"
-    ho_idx = subprocess.run(
-        ["git", "hash-object", "-w", "--stdin"],
-        cwd=str(repo_root),
-        input=index_payload,
-        capture_output=True,
-        text=True,
-        timeout=10,
-    )
-    if ho_idx.returncode == 0:
-        existing_blobs["_index.json"] = ho_idx.stdout.strip()
+    for attempt in range(1, max_tries + 1):
+        try:
+            tip, old_blobs, old_groups = _remote_branch_state(repo_root, branch)
+        except (RuntimeError, subprocess.TimeoutExpired) as exc:
+            logging.error("%s", exc)
+            return False
 
-    tree_lines = [
-        f"100644 blob {sha}\t{fname}"
-        for fname, sha in sorted(existing_blobs.items())
-    ]
-    mktree = subprocess.run(
-        ["git", "mktree"],
-        cwd=str(repo_root),
-        input="\n".join(tree_lines) + "\n",
-        capture_output=True,
-        text=True,
-        timeout=10,
-    )
-    if mktree.returncode != 0:
-        logging.error("git mktree failed: %s", mktree.stderr.strip())
+        # Keep other groups' experiment files; drop our own (and unowned legacy) ones unless re-produced
+        blobs: Dict[str, str] = {}
+        groups: Dict[str, str] = {}
+        for fname, sha in old_blobs.items():
+            if fname.startswith("_") or not fname.endswith(".json") or fname in new_blobs:
+                continue
+            grp = old_groups.get(fname)
+            if grp is not None and grp not in owned:
+                blobs[fname] = sha
+                groups[fname] = grp
+        blobs.update(new_blobs)
+        groups.update(new_groups)
+
+        # _index.json lets the dashboard discover experiments via raw.githubusercontent.com
+        # without hitting api.github.com rate limits
+        index_payload = json.dumps(
+            {"files": sorted(blobs), "groups": dict(sorted(groups.items())), "updated_at": utc_now_iso()},
+            indent=2,
+        ) + "\n"
+        ho_idx = _git(repo_root, ["hash-object", "-w", "--stdin"], input_text=index_payload)
+        if ho_idx.returncode == 0:
+            blobs["_index.json"] = ho_idx.stdout.strip()
+
+        tree_lines = [f"100644 blob {sha}\t{fname}" for fname, sha in sorted(blobs.items())]
+        mktree = _git(repo_root, ["mktree"], input_text="\n".join(tree_lines) + "\n")
+        if mktree.returncode != 0:
+            logging.error("git mktree failed: %s", mktree.stderr.strip())
+            return False
+
+        msg = f"status update ({branch}: {', '.join(sorted(owned))}) {utc_now_iso()}"
+        ct = _git(repo_root, ["commit-tree", mktree.stdout.strip(), "-m", msg])
+        if ct.returncode != 0:
+            logging.error("git commit-tree failed: %s", ct.stderr.strip())
+            return False
+        commit_sha = ct.stdout.strip()
+
+        lease = f"--force-with-lease=refs/heads/{branch}:{tip or ''}"
+        push_proc = _git(repo_root, ["push", lease, "origin", f"{commit_sha}:refs/heads/{branch}"], timeout=30)
+        if push_proc.returncode == 0:
+            kept = len(blobs) - len(new_blobs) - (1 if "_index.json" in blobs else 0)
+            logging.info("Pushed %s to origin/%s (kept %d file(s) from other groups)", ", ".join(names), branch, kept)
+            return True
+        if "stale info" in push_proc.stderr or "rejected" in push_proc.stderr:
+            logging.warning("origin/%s changed during push (attempt %d/%d); retrying", branch, attempt, max_tries)
+            time.sleep(2 * attempt)
+            continue
+        logging.error("Failed to push to origin/%s: %s", branch, push_proc.stderr.strip())
         return False
-    tree_sha = mktree.stdout.strip()
 
-    msg = f"status update ({branch}) {utc_now_iso()}"
-    ct = subprocess.run(
-        ["git", "commit-tree", tree_sha, "-m", msg],
-        cwd=str(repo_root),
-        capture_output=True,
-        text=True,
-        timeout=10,
-    )
-    if ct.returncode != 0:
-        logging.error("git commit-tree failed: %s", ct.stderr.strip())
-        return False
-    commit_sha = ct.stdout.strip()
-
-    push_proc = subprocess.run(
-        ["git", "push", "--force", "origin", f"{commit_sha}:refs/heads/{branch}"],
-        cwd=str(repo_root),
-        capture_output=True,
-        text=True,
-        timeout=30,
-    )
-    if push_proc.returncode == 0:
-        logging.info("Pushed %s to origin/%s", ", ".join(names), branch)
-        return True
-
-    logging.error("Failed to push to origin/%s: %s", branch, push_proc.stderr.strip())
+    logging.error("Failed to push to origin/%s after %d attempts", branch, max_tries)
     return False
 
 
@@ -857,6 +905,9 @@ def process_experiment(
     state_file = state_dir / f"{exp_name}_{cluster}_state.json"
     legacy_state_file = state_dir.parent / f"{exp_name}_{cluster}_state.json"
     state = load_state(state_file if state_file.is_file() else legacy_state_file)
+
+    if exp_cfg.get("group"):
+        status["group"] = str(exp_cfg["group"])
 
     default_exp = str(exp_cfg.get("default_exp", "") or "").strip()
     if exp_cfg.get("default") or default_exp in (f"{cluster}/{exp_name}", exp_name):
@@ -1015,10 +1066,16 @@ def main() -> int:
     experiments = raw_cfg.get("experiments", [])
 
     if not experiments:
-        logging.error("No experiments defined under 'experiments:' in %s", config_file)
-        return 1
+        # An empty list retires the group: remove its files from the status branch
+        group = str(raw_cfg.get("group") or common_cfg.get("group") or config_file.stem)
+        logging.warning("No experiments in %s; removing group '%s' from the status branch", config_file, group)
+        return 0 if git_push_status_branch(REPO_ROOT, [], get_status_branch(), args.dry_run, [group]) else 1
 
     merged_list = [deep_merge(common_cfg, exp_item) for exp_item in experiments]
+    default_group = str(raw_cfg.get("group") or common_cfg.get("group") or config_file.stem)
+    for m in merged_list:
+        m["group"] = str(m.get("group") or default_group)
+    run_groups = sorted({m["group"] for m in merged_list})
     any_rescue_enabled = any(
         m.get("checks", {}).get("ens_fcst_rescue", {}).get("enabled", False)
         for m in merged_list
@@ -1072,7 +1129,7 @@ def main() -> int:
     if ok_count > 0 and not rescue_only:
         # Run git push and healthchecks heartbeat concurrently
         with concurrent.futures.ThreadPoolExecutor(max_workers=2) as net_pool:
-            f_push = net_pool.submit(git_push_status_branch, REPO_ROOT, sorted(updated_files), status_branch, args.dry_run)
+            f_push = net_pool.submit(git_push_status_branch, REPO_ROOT, sorted(updated_files), status_branch, args.dry_run, run_groups)
             f_ping = net_pool.submit(ping_heartbeat, find_heartbeat_uuid(REPO_ROOT), args.dry_run)
             f_push.result()
             f_ping.result()

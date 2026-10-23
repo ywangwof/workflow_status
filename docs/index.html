@@ -735,12 +735,32 @@
         function renderSidebar() {
             const listEl = document.getElementById('sidebar-list');
             const countEl = document.getElementById('sidebar-count');
-            const keys = Object.keys(currentStatusData);
+            const groupOf = k => {
+                const d = currentStatusData[k] || {};
+                return d.group || (d.cluster || k.split('/')[0]);
+            };
+            // Stable sort by group (first-seen order), keeping discovery order within a group
+            const groupOrder = [];
+            Object.keys(currentStatusData).forEach(k => { const g = groupOf(k); if (!groupOrder.includes(g)) groupOrder.push(g); });
+            const keys = Object.keys(currentStatusData)
+                .map((k, i) => ({ k, i, g: groupOrder.indexOf(groupOf(k)) }))
+                .sort((a, b) => a.g - b.g || a.i - b.i)
+                .map(o => o.k);
+            const showGroupHeaders = groupOrder.length > 1;
             countEl.textContent = keys.length;
             listEl.innerHTML = '';
 
+            let lastGroup = null;
             keys.forEach(key => {
                 const data = currentStatusData[key];
+                if (showGroupHeaders && groupOf(key) !== lastGroup) {
+                    lastGroup = groupOf(key);
+                    const nInGroup = keys.filter(k => groupOf(k) === lastGroup).length;
+                    const hdr = document.createElement('div');
+                    hdr.className = 'flex items-center justify-between px-1 pt-3 pb-1 text-[11px] font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 border-b border-gray-200 dark:border-gray-700 first:pt-0';
+                    hdr.innerHTML = `<span class="truncate" title="${lastGroup}">${lastGroup}</span><span class="font-mono font-normal">${nInGroup}</span>`;
+                    listEl.appendChild(hdr);
+                }
                 const isSelected = key === selectedExpKey;
                 const health = getExperimentHealth(data);
                 const sum = data.summary || {};
