@@ -1045,7 +1045,7 @@
                     </th>`;
             });
             gridHeader.innerHTML += `
-                <th class="px-2 py-2 border-l-2 border-gray-300 dark:border-gray-600 align-bottom bg-gray-50 dark:bg-gray-800/50 text-center" title="Sum of task durations (max over members for ensemble/group columns)">
+                <th class="w-px px-1 py-2 border-l-2 border-gray-300 dark:border-gray-600 align-bottom bg-gray-50 dark:bg-gray-800/50 text-center whitespace-nowrap" title="Sum of task durations (max over members for ensemble/group columns)">
                     <div class="text-[11px] font-mono font-semibold text-gray-700 dark:text-gray-300">Total</div>
                 </th>`;
 
@@ -1177,7 +1177,7 @@
                 const isDone = c.cycle_state === 'Done';
                 if (isDone && hasDur) { doneTotal += rowTotal; doneCount++; }
                 const totalTd = document.createElement('td');
-                totalTd.className = `px-2 py-1 border-l-2 border-gray-300 dark:border-gray-600 text-right text-xs font-mono whitespace-nowrap ${isDone ? 'text-gray-700 dark:text-gray-300' : 'text-gray-400 dark:text-gray-500 italic'}`;
+                totalTd.className = `w-px px-1 py-1 border-l-2 border-gray-300 dark:border-gray-600 text-right text-[11px] font-mono whitespace-nowrap ${isDone ? 'text-gray-700 dark:text-gray-300' : 'text-gray-400 dark:text-gray-500 italic'}`;
                 totalTd.title = isDone ? 'Cycle done' : 'Cycle not finished (partial)';
                 totalTd.textContent = hasDur ? formatDuration(rowTotal) : '-';
                 row.appendChild(totalTd);
@@ -1191,7 +1191,7 @@
             sumRow.innerHTML = `
                 <td class="p-2.5 text-xs font-mono font-semibold text-gray-700 dark:text-gray-300 border-r border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 sticky left-0 z-10 whitespace-nowrap">Total (${doneCount} done)</td>
                 <td colspan="${colOrder.length}"></td>
-                <td class="px-2 py-1 border-l-2 border-gray-300 dark:border-gray-600 text-right text-xs font-mono font-bold text-gray-800 dark:text-gray-200 whitespace-nowrap">${doneCount ? formatDuration(doneTotal) : '-'}</td>`;
+                <td class="w-px px-1 py-1 border-l-2 border-gray-300 dark:border-gray-600 text-right text-[11px] font-mono font-bold text-gray-800 dark:text-gray-200 whitespace-nowrap">${doneCount ? formatDuration(doneTotal) : '-'}</td>`;
             gridBody.appendChild(sumRow);
 
             // Collapse/expand toggle
