@@ -879,7 +879,7 @@
 
             let rangeText = `${sum.total_tasks || 0} Total Tasks`;
             if (rawCycles.length > 0) {
-                const cList = rawCycles.map(c => (c.cdate && c.cdate.length === 12) ? c.cdate.slice(0, 10) : c.cdate).sort();
+                const cList = rawCycles.map(c => (c.cdate && c.cdate.length === 12 && c.cdate.endsWith('00')) ? c.cdate.slice(0, 10) : c.cdate).sort();
                 const firstCyc = cList[0];
                 const lastCyc = cList[cList.length - 1];
                 rangeText = firstCyc === lastCyc
@@ -1031,7 +1031,7 @@
             // Cycle rows
             cycles.forEach(c => {
                 const row = document.createElement('tr');
-                const cycleStr = (c.cdate && c.cdate.length === 12) ? c.cdate.slice(0, 10) : c.cdate;
+                const cycleStr = (c.cdate && c.cdate.length === 12 && c.cdate.endsWith('00')) ? c.cdate.slice(0, 10) : c.cdate;
                 const badge = c.cycle_state === 'Active'
                     ? '<span class="ml-1.5 inline-block w-2 h-2 rounded-full bg-blue-500" title="Active Cycle"></span>'
                     : '';
