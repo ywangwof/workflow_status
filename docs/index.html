@@ -262,6 +262,14 @@
         const DEFAULT_EXP = '';
         const REFRESH_INTERVAL = 120; // seconds
 
+        // YYYYMMDDHHMM / YYYYMMDDHH -> YYYYMMDD_HHMM
+        function formatCdate(cdate) {
+            if (!cdate) return cdate;
+            if (/^\d{12}$/.test(cdate)) return `${cdate.slice(0, 8)}_${cdate.slice(8)}`;
+            if (/^\d{10}$/.test(cdate)) return `${cdate.slice(0, 8)}_${cdate.slice(8)}00`;
+            return cdate;
+        }
+
         // --- State ---
         let countdown = REFRESH_INTERVAL;
         let timerInterval = null;
@@ -865,7 +873,7 @@
                 }
             }
 
-            // Task Summary with cycle range: "392 Total Tasks during YYYYMMDDHH - YYYYMMDDHH"
+            // Task Summary with cycle range: "392 Total Tasks during YYYYMMDD_HHMM - YYYYMMDD_HHMM"
             const rawCycles = data.cycles || [];
             const sum = { ...(data.summary || { total_tasks: 0, succeeded: 0, running: 0, queued: 0, submitting: 0, waiting: 0, expired: 0, dead: 0, other: 0 }) };
             if (sum.expired === undefined) {
@@ -879,7 +887,7 @@
 
             let rangeText = `${sum.total_tasks || 0} Total Tasks`;
             if (rawCycles.length > 0) {
-                const cList = rawCycles.map(c => (c.cdate && c.cdate.length === 12 && c.cdate.endsWith('00')) ? c.cdate.slice(0, 10) : c.cdate).sort();
+                const cList = rawCycles.map(c => formatCdate(c.cdate)).sort();
                 const firstCyc = cList[0];
                 const lastCyc = cList[cList.length - 1];
                 rangeText = firstCyc === lastCyc
@@ -1031,7 +1039,7 @@
             // Cycle rows
             cycles.forEach(c => {
                 const row = document.createElement('tr');
-                const cycleStr = (c.cdate && c.cdate.length === 12 && c.cdate.endsWith('00')) ? c.cdate.slice(0, 10) : c.cdate;
+                const cycleStr = formatCdate(c.cdate);
                 const badge = c.cycle_state === 'Active'
                     ? '<span class="ml-1.5 inline-block w-2 h-2 rounded-full bg-blue-500" title="Active Cycle"></span>'
                     : '';
