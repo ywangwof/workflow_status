@@ -1,0 +1,2441 @@
+{
+  "experiment": "wofs_0618",
+  "cluster": "ursa",
+  "updated_at": "2026-10-23T21:26:01Z",
+  "monitor_host": "ufe01",
+  "cycles": [
+    {
+      "cdate": "202606180900",
+      "cycle_state": "Active",
+      "activated": "Oct 23 2026 19:25:52",
+      "deactivated": null,
+      "wall_time_min": null,
+      "tasks": [
+        {
+          "name": "create_domain",
+          "state": "RUNNING",
+          "jobid": "24480359",
+          "exit_status": null,
+          "tries": 0,
+          "duration": 0.0
+        },
+        {
+          "name": "ioda_cwp",
+          "state": "SUCCEEDED",
+          "jobid": "24480360",
+          "exit_status": 0,
+          "tries": 1,
+          "duration": 9.0
+        },
+        {
+          "name": "ungrib_ic_m001",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_ic_m002",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_ic_m003",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_ic_m004",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_ic_m005",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_ic_m006",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_ic_m007",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_ic_m008",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_ic_m009",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_ic_m010",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_ic_m011",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_ic_m012",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_ic_m013",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_ic_m014",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_ic_m015",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_ic_m016",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_ic_m017",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_ic_m018",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_ic_m019",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_ic_m020",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_ic_m021",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_ic_m022",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_ic_m023",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_ic_m024",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_ic_m025",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_ic_m026",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_ic_m027",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_ic_m028",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_ic_m029",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_ic_m030",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_lbc_g01_m001",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_lbc_g02_m001",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_lbc_g01_m002",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_lbc_g02_m002",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_lbc_g01_m003",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_lbc_g02_m003",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_lbc_g01_m004",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_lbc_g02_m004",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_lbc_g01_m005",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_lbc_g02_m005",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_lbc_g01_m006",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_lbc_g02_m006",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_lbc_g01_m007",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_lbc_g02_m007",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_lbc_g01_m008",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_lbc_g02_m008",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_lbc_g01_m009",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_lbc_g02_m009",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_lbc_g01_m010",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ungrib_lbc_g02_m010",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ic_m001",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ic_m002",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ic_m003",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ic_m004",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ic_m005",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ic_m006",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ic_m007",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ic_m008",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ic_m009",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ic_m010",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ic_m011",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ic_m012",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ic_m013",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ic_m014",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ic_m015",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ic_m016",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ic_m017",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ic_m018",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ic_m019",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ic_m020",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ic_m021",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ic_m022",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ic_m023",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ic_m024",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ic_m025",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ic_m026",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ic_m027",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ic_m028",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ic_m029",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "ic_m030",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "lbc_g01_m001",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "lbc_g02_m001",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "lbc_g01_m002",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "lbc_g02_m002",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "lbc_g01_m003",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "lbc_g02_m003",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "lbc_g01_m004",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "lbc_g02_m004",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "lbc_g01_m005",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "lbc_g02_m005",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "lbc_g01_m006",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "lbc_g02_m006",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "lbc_g01_m007",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "lbc_g02_m007",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "lbc_g01_m008",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "lbc_g02_m008",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "lbc_g01_m009",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "lbc_g02_m009",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "lbc_g01_m010",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "lbc_g02_m010",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_ic",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m001",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m002",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m003",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m004",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m005",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m006",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m007",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m008",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m009",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m010",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m011",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m012",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m013",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m014",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m015",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m016",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m017",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m018",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m019",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m020",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m021",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m022",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m023",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m024",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m025",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m026",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m027",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m028",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m029",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m030",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m001",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m002",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m003",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m004",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m005",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m006",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m007",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m008",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m009",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m010",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m011",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m012",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m013",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m014",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m015",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m016",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m017",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m018",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m019",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m020",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m021",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m022",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m023",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m024",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m025",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m026",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m027",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m028",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m029",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m030",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "save_for_next",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        }
+      ]
+    },
+    {
+      "cdate": "202606180915",
+      "cycle_state": "Active",
+      "activated": "Oct 23 2026 19:25:52",
+      "deactivated": null,
+      "wall_time_min": null,
+      "tasks": [
+        {
+          "name": "ioda_bufr",
+          "state": "SUCCEEDED",
+          "jobid": "24480361",
+          "exit_status": 0,
+          "tries": 1,
+          "duration": 26.0
+        },
+        {
+          "name": "ioda_cwp",
+          "state": "SUCCEEDED",
+          "jobid": "24480362",
+          "exit_status": 0,
+          "tries": 1,
+          "duration": 9.0
+        },
+        {
+          "name": "prep_ic",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m001",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m002",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m003",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m004",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m005",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m006",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m007",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m008",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m009",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m010",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m011",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m012",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m013",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m014",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m015",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m016",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m017",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m018",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m019",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m020",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m021",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m022",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m023",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m024",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m025",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m026",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m027",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m028",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m029",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m030",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "getkf_observer",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "getkf_solver",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "getkf_post",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m001",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m002",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m003",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m004",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m005",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m006",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m007",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m008",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m009",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m010",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m011",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m012",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m013",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m014",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m015",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m016",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m017",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m018",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m019",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m020",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m021",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m022",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m023",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m024",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m025",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m026",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m027",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m028",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m029",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m030",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "save_for_next",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        }
+      ]
+    },
+    {
+      "cdate": "202606180930",
+      "cycle_state": "Active",
+      "activated": "Oct 23 2026 19:25:52",
+      "deactivated": null,
+      "wall_time_min": null,
+      "tasks": [
+        {
+          "name": "ioda_bufr",
+          "state": "SUCCEEDED",
+          "jobid": "24480363",
+          "exit_status": 0,
+          "tries": 1,
+          "duration": 23.0
+        },
+        {
+          "name": "ioda_cwp",
+          "state": "SUCCEEDED",
+          "jobid": "24480364",
+          "exit_status": 0,
+          "tries": 1,
+          "duration": 9.0
+        },
+        {
+          "name": "prep_ic",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m001",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m002",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m003",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m004",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m005",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m006",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m007",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m008",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m009",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m010",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m011",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m012",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m013",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m014",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m015",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m016",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m017",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m018",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m019",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m020",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m021",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m022",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m023",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m024",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m025",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m026",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m027",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m028",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m029",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "prep_lbc_m030",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "getkf_observer",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "getkf_solver",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "getkf_post",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m001",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m002",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m003",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m004",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m005",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m006",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m007",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m008",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m009",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m010",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m011",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m012",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m013",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m014",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m015",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m016",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m017",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m018",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m019",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m020",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m021",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m022",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m023",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m024",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m025",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m026",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m027",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m028",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m029",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "fcst_m030",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        },
+        {
+          "name": "save_for_next",
+          "state": "WAITING",
+          "jobid": null,
+          "exit_status": null,
+          "tries": null,
+          "duration": null
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_cycles": 3,
+    "active_cycles": 3,
+    "done_cycles": 0,
+    "total_tasks": 298,
+    "succeeded": 5,
+    "running": 1,
+    "queued": 0,
+    "submitting": 0,
+    "waiting": 292,
+    "expired": 0,
+    "dead": 0,
+    "other": 0
+  },
+  "alerts": {
+    "dead_jobs": [],
+    "stall": false,
+    "stall_since": null,
+    "hung_jobs": []
+  },
+  "group": "wofs_R0",
+  "default_exp": "ursa/wofsv2_reference"
+}
