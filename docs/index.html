@@ -270,6 +270,15 @@
             return cdate;
         }
 
+        // Seconds -> "Ns" if < 720 s, else "H:MM:SS"
+        function formatDuration(sec) {
+            if (sec === null || sec === undefined || isNaN(sec)) return '-';
+            const t = Math.round(sec);
+            if (t < 720) return `${t}s`;
+            const h = Math.floor(t / 3600), m = Math.floor((t % 3600) / 60), s = t % 60;
+            return `${h}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+        }
+
         // --- State ---
         let countdown = REFRESH_INTERVAL;
         let timerInterval = null;
@@ -1035,6 +1044,16 @@
                         <div class="task-header text-[11px] font-mono text-gray-700 dark:text-gray-300 inline-block">${wrappedHeader}</div>
                     </th>`;
             });
+            gridHeader.innerHTML += `
+                <th class="px-2 py-2 border-l-2 border-gray-300 dark:border-gray-600 align-bottom bg-gray-50 dark:bg-gray-800/50 text-center" title="Sum of task durations (max over members for ensemble/group columns)">
+                    <div class="text-[11px] font-mono font-semibold text-gray-700 dark:text-gray-300">Total</div>
+                </th>`;
+
+            const colDuration = tasks => {
+                const d = tasks.map(t => t.duration).filter(v => v !== null && v !== undefined && !isNaN(v));
+                return d.length ? Math.max(...d) : null;
+            };
+            let doneTotal = 0, doneCount = 0;
 
             // Cycle rows
             cycles.forEach(c => {
@@ -1149,8 +1168,31 @@
                     row.appendChild(td);
                 });
 
+                // Row total: single task duration, or max duration across group/ensemble members
+                let rowTotal = 0, hasDur = false;
+                colOrder.forEach(colKey => {
+                    const d = colDuration(groupedTasks[colKey] || []);
+                    if (d !== null) { rowTotal += d; hasDur = true; }
+                });
+                const isDone = c.cycle_state === 'Done';
+                if (isDone && hasDur) { doneTotal += rowTotal; doneCount++; }
+                const totalTd = document.createElement('td');
+                totalTd.className = `px-2 py-1 border-l-2 border-gray-300 dark:border-gray-600 text-right text-xs font-mono whitespace-nowrap ${isDone ? 'text-gray-700 dark:text-gray-300' : 'text-gray-400 dark:text-gray-500 italic'}`;
+                totalTd.title = isDone ? 'Cycle done' : 'Cycle not finished (partial)';
+                totalTd.textContent = hasDur ? formatDuration(rowTotal) : '-';
+                row.appendChild(totalTd);
+
                 gridBody.appendChild(row);
             });
+
+            // Summary row: total over finished (Done) cycles
+            const sumRow = document.createElement('tr');
+            sumRow.className = 'border-t-2 border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800/50';
+            sumRow.innerHTML = `
+                <td class="p-2.5 text-xs font-mono font-semibold text-gray-700 dark:text-gray-300 border-r border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 sticky left-0 z-10 whitespace-nowrap">Total (${doneCount} done)</td>
+                <td colspan="${colOrder.length}"></td>
+                <td class="px-2 py-1 border-l-2 border-gray-300 dark:border-gray-600 text-right text-xs font-mono font-bold text-gray-800 dark:text-gray-200 whitespace-nowrap">${doneCount ? formatDuration(doneTotal) : '-'}</td>`;
+            gridBody.appendChild(sumRow);
 
             // Collapse/expand toggle
             const toggleBtn = clone.querySelector('.grid-toggle');
