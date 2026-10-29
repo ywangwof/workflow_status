@@ -1,0 +1,21 @@
+{
+  "files": [
+    "baseline_0518.json",
+    "wofs_0417.json",
+    "wofs_0506.json",
+    "wofs_0513.json",
+    "wofs_0518.json",
+    "wofs_0608.json",
+    "wofs_0618.json"
+  ],
+  "groups": {
+    "baseline_0518.json": "wofs_baseline0",
+    "wofs_0417.json": "wofs_R0",
+    "wofs_0506.json": "wofs_R0",
+    "wofs_0513.json": "wofs_R0",
+    "wofs_0518.json": "wofs_R0",
+    "wofs_0608.json": "wofs_R0",
+    "wofs_0618.json": "wofs_R0"
+  },
+  "updated_at": "2026-10-29T17:55:38Z"
+}
