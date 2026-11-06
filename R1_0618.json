@@ -1,0 +1,29 @@
+{
+  "experiment": "R1_0618",
+  "cluster": "ursa",
+  "updated_at": "2026-11-06T15:54:30Z",
+  "monitor_host": "ufe01",
+  "cycles": [],
+  "summary": {
+    "total_cycles": 0,
+    "active_cycles": 0,
+    "done_cycles": 0,
+    "total_tasks": 0,
+    "succeeded": 0,
+    "running": 0,
+    "queued": 0,
+    "submitting": 0,
+    "waiting": 0,
+    "expired": 0,
+    "dead": 0,
+    "other": 0
+  },
+  "alerts": {
+    "dead_jobs": [],
+    "stall": true,
+    "stall_since": 1793809825,
+    "hung_jobs": []
+  },
+  "group": "wofs_R1",
+  "default_exp": "ursa/wofsv2_reference"
+}
