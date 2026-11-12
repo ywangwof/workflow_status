@@ -1,0 +1,31 @@
+{
+  "files": [
+    "R1_0417.json",
+    "R1_0506.json",
+    "R1_0513.json",
+    "R1_0518.json",
+    "R1_0608.json",
+    "R1_0618.json",
+    "wofs_0417.json",
+    "wofs_0506.json",
+    "wofs_0513.json",
+    "wofs_0518.json",
+    "wofs_0608.json",
+    "wofs_0618.json"
+  ],
+  "groups": {
+    "R1_0417.json": "wofs_R1",
+    "R1_0506.json": "wofs_R1",
+    "R1_0513.json": "wofs_R1",
+    "R1_0518.json": "wofs_R1",
+    "R1_0608.json": "wofs_R1",
+    "R1_0618.json": "wofs_R1",
+    "wofs_0417.json": "wofs_R0",
+    "wofs_0506.json": "wofs_R0",
+    "wofs_0513.json": "wofs_R0",
+    "wofs_0518.json": "wofs_R0",
+    "wofs_0608.json": "wofs_R0",
+    "wofs_0618.json": "wofs_R0"
+  },
+  "updated_at": "2026-11-12T10:32:19Z"
+}
